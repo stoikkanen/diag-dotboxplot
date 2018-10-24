@@ -50,5 +50,3 @@ shinyUI(
 
 
 #shinyApp(ui, server)
-
-#runApp(appDir = "C:/Users/sgl16/Documents/Tx/praesi/dotplot", port = 1111)
