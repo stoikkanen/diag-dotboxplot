@@ -1,6 +1,5 @@
-## vis - dotplot
-
-dotbplot<-function(x = "xvar", y = "yvar", 
+dotbplot <-
+function(x = xvar, y = yvar, 
                    meanfunction = "mean",
                    jitter = 0.1, 
                    buffer = .5, 
@@ -88,34 +87,3 @@ dotbplot<-function(x = "xvar", y = "yvar",
   axis(2, las=2)
   axis(4, las=2)
   }
-
-
-makeplot<-function(data=data1, 
-                   org="leber", 
-                   var="ICU_Days", 
-                   ymin = NULL, 
-                   ymax = NULL,
-                   meanfunction = "mean", 
-                   dotcol = col1, 
-                   outliercolor = col2){
-subi<-subset(data, organ == org)
-ran<-range(subi[,var],na.rm=T)
-
-if(is.null(ymin)){ymin<-ran[1]}
-if(is.null(ymax)){ymax<-ran[2]*1.2}
-
-dotbplot(x=as.character(subi$Site),
-                     y = subi[,var],
-  meanfunction = meanfunction, highlightoutliers=T,
-                     outlierfactor = 2, dotcol=dotcol,
-                     xlab="Center", lines=F, outliercol=outliercolor,
-                     ylab=var, jitter=.2, buffer=.3,
-                     scaleperc = 120, ylim=c(ymin,ymax))
-}
-
-maketable<-function(data=data1, org="leber", var="ICU_Days" ){
-  subi<-subset(data, organ==org)
-  subi[,c("Site", var)]
-  }
-
-
